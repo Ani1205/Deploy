@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple To-Do App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">MY DAILY PLANNER</p>
+        <h1>To-do list <span aria-hidden="true">✦</span></h1>
+        <p class="subtitle">Small steps make big progress.</p>
+      </div>
+      <div class="date-card">
+        <span class="date-label">TODAY</span>
+        <strong id="today-date">Loading date…</strong>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="Task summary">
+      <div class="summary-card">
+        <span class="summary-number" id="total-count">0</span>
+        <span class="summary-label">All tasks</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-number" id="pending-count">0</span>
+        <span class="summary-label">To do</span>
+      </div>
+      <div class="summary-card">
+        <span class="summary-number" id="completed-count">0</span>
+        <span class="summary-label">Completed</span>
+      </div>
+    </section>
+
+    <section class="task-panel">
+      <h2>Add a task</h2>
+      <form id="task-form" class="task-form">
+        <label class="sr-only" for="task-input">Task description</label>
+        <input id="task-input" type="text" placeholder="What do you need to do?" maxlength="120" autocomplete="off" required />
+        <button type="submit" class="add-button">＋ Add task</button>
+      </form>
+
+      <div class="task-toolbar">
+        <h2>Your tasks</h2>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="pending">To do</button>
+          <button class="filter" type="button" data-filter="completed">Done</button>
+        </div>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      <div id="empty-state" class="empty-state">
+        <span class="empty-icon" aria-hidden="true">☀</span>
+        <p class="empty-title">Nothing here yet</p>
+        <p class="empty-copy">Add your first task and get started.</p>
+      </div>
+
+      <footer class="panel-footer">
+        <span id="remaining-text">You're all caught up.</span>
+        <button id="clear-completed" type="button" class="text-button">Clear completed</button>
+      </footer>
+    </section>
+    <p class="note">Your tasks are saved in this browser on this device.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
